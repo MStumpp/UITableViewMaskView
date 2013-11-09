@@ -10,15 +10,14 @@
 
 @protocol UITableViewMaskViewDelegate;
 
-@interface UITableViewMaskView : UIView
+@interface UITableViewMaskView : NSObject
 - (id)initWithRootView:(UIView *)rootView customMaskView:(UIView*)customMaskView delegate:(id<UITableViewMaskViewDelegate>)delegate;
 - (void)maskOnCompletion:(void (^)(BOOL isMasked))callback;
 - (void)unmaskOnCompletion:(void (^)(BOOL isUnmasked))callback;
 - (BOOL)isMasked;
 - (BOOL)isUnmasked;
-- (void)setCustomMaskView:(UIView*)customMaskView;
-- (UIView*)rootView;
-- (UIView*)maskView;
+-(void)setAlphaValue:(float)n;
+-(void)showSpinner:(BOOL)n;
 @end
 
 @protocol UITableViewMaskViewDelegate <NSObject>
